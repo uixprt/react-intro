@@ -118,6 +118,28 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
+function formatUser({firstName, lastName}) {
+    return `${firstName} ${lastName}`;
+}
+
+
+function getGreeting(user = null) {
+    if (user?.firstName && user?.lastName) {
+        return <h1>Hello, {formatUser(user)}</h1>;
+    }
+    return <h1>Hello, Stranger!</h1>
+}
+
+const user = {
+    firstName: 'Asher',
+    lastName: 'Indursky'
+}
+
+ReactDOM.render(
+    getGreeting(user),
+    document.getElementById('root2')
+);
+
 
 function calculateWinner(squares) {
     const lines = [
